@@ -2,9 +2,12 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/',
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(mode)
+  },
   server: {
     port: 5173,
     cors: true,
@@ -53,4 +56,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ['recharts', 'react', 'react-dom', 'react-router-dom'],
   },
-}) 
+})) 
