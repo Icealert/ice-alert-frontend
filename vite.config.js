@@ -43,7 +43,7 @@ export default defineConfig({
         manualChunks: {
           'vendor-recharts': ['recharts'],
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-ui': ['@material-ui/core', '@material-ui/icons', 'framer-motion'],
+          'vendor-ui': ['framer-motion']
         },
       }
     },
