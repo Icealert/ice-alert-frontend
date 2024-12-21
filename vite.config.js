@@ -40,9 +40,17 @@ export default defineConfig({
     assetsDir: 'assets',
     rollupOptions: {
       output: {
-        manualChunks: undefined
+        manualChunks: {
+          'vendor-recharts': ['recharts'],
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-ui': ['@material-ui/core', '@material-ui/icons', 'framer-motion'],
+        },
       }
-    }
+    },
+    chunkSizeWarningLimit: 800,
   },
-  publicDir: 'public'
+  publicDir: 'public',
+  optimizeDeps: {
+    include: ['recharts', 'react', 'react-dom', 'react-router-dom'],
+  },
 }) 
